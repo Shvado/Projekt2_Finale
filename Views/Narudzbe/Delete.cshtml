@@ -1,0 +1,19 @@
+﻿@model Projekt.Models.Narudzba
+
+@{
+    ViewBag.Title = "Izbriši";
+}
+
+<h2>Izbriši potvrda</h2>
+
+<p>Jeste li sigurni da želite izbrisati ovu narudžbu?</p>
+
+@using (Html.BeginForm("DeleteConfirmed", "Narudzbe", new { id = Model.Id_narudzba }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions">
+        <input type="submit" value="Izbriši" class="btn btn-danger" />
+        @Html.ActionLink("Prekid", "Index", null, new { @class = "btn btn-default" })
+    </div>
+}

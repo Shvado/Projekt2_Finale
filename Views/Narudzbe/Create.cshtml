@@ -1,0 +1,91 @@
+﻿@model Projekt.Models.Narudzba
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Narudžba</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ime_hrana, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Ime_hrana, new SelectList(new[]
+                {
+                    new SelectListItem { Text = "Pizza Margherita", Value = "Pizza Margherita" },
+                    new SelectListItem { Text = "Sendvič s pršutom", Value = "Sendvič s pršutom" },
+                    new SelectListItem { Text = "Rižoto s plodovima mora", Value = "Rižoto s plodovima mora" },
+                    new SelectListItem { Text = "Tiramisu", Value = "Tiramisu" },
+                    new SelectListItem { Text = "Voćna salata", Value = "Voćna salata" },
+                    new SelectListItem { Text = "Roštilj", Value = "Roštilj" },
+                    
+                }, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Ime_hrana, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ime_pice, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Ime_pice, new SelectList(new[]
+                {
+                    new SelectListItem { Text = "Kava", Value = "Kava" },
+                    new SelectListItem { Text = "Čaj", Value = "Čaj" },
+                    new SelectListItem { Text = "Sok", Value = "Sok" },
+                    new SelectListItem { Text = "Pivo", Value = "Pivo" },
+                    
+                }, "Value", "Text"), new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Ime_pice, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ime_adresa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ime_adresa, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ime_adresa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ime_mobitel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ime_mobitel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ime_mobitel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Napravi" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Popis narudžbi", "Index")
+</div>
+
+ </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+
+
+
+
